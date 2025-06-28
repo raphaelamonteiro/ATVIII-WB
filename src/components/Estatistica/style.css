@@ -1,0 +1,35 @@
+.session-estatistica {
+    color: var(--primary);
+    background-color: var(--light-brown);
+    padding: 40px 5%;
+    width: auto;
+
+    h2 {
+        padding-bottom: 40px;
+    }
+}
+
+.card-estatistica {
+    background-color: var(--white);
+    padding: 24px 5%;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    -webkit-box-shadow: 8px 6px 17px -5px rgba(64, 29, 16, 0.2);
+    -moz-box-shadow: 8px 6px 17px -5px rgba(64, 29, 16, 0.2);
+    box-shadow: 8px 6px 17px -5px rgba(64, 29, 16, 0.2);
+}
+
+.text-estatistica {
+    max-width: 50%;
+}
+
+.image-estatistica {
+    height: 500px;
+    width: 40%;
+    background-size: contain;
+    background-position: center;
+    background-image: url("../../assets/images/computer.png");
+}
