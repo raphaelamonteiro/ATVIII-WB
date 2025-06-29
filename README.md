@@ -24,6 +24,7 @@ Após o sucesso da primeira versão do sistema CLI desenvolvido para o Grupo Wor
 A GUI foi criada para melhorar a navegação, usabilidade e a experiência geral do usuário, simplificando a visualização, edição e consulta dos dados do sistema.
 
 <br>
+
 Agora, você é responsável por **migrar o sistema** para a versão mais moderna da **React** com **componentes de função e Hooks**. A versão anterior do sistema utilizava **componentes de classe** e a biblioteca **MaterializeCSS**. O objetivo é manter a usabilidade e modernizar a estrutura do código, aproveitando as vantagens dos hooks, como `useState`, `useEffect`, e outros.
 
 ---
@@ -74,8 +75,8 @@ npm -v
 1. **Clone este repositório:**
 
 ```bash
-git clone https://github.com/gerson-pn/atviii-wb-typescript.git
-cd atviii-wb-typescript
+git clone https://github.com/raphaelamonteiro/ATVIII-WB
+cd ATVIII-WB
 ```
 
 2. **Instale as dependências:**
