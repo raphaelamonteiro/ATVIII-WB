@@ -10,7 +10,7 @@
     p{
         display: flex;
         justify-content: center;
-        background-color: var(--light-brown);
+        background-color: var(--red);
         color: var(--primary);
         padding: 5px;
         width: 100%;

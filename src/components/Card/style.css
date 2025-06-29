@@ -33,7 +33,7 @@
 }
 
 .card-button {
-  background-color: var(--light-brown);
+  background-color: var(--red);
   color: var(--white);
   border: none;
   padding: 10px 20px;

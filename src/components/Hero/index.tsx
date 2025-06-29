@@ -9,8 +9,8 @@ class Banner extends React.Component {
         <div className="text">
           <h2>World Beauty</h2>
           <p>
-            Seja bem vindo ao sistema World Beauty, aqui você pode cadastrar
-            seus Clientes, Produtos e servicos.
+            Aqui você encontra tudo o que precisa para cuidar dos nossos clientes e do seu dia a dia.
+            Conte conosco para uma experiência leve e eficiente!
           </p>
           <Link to="/estatistica">
             <span>Painel de Controle</span>

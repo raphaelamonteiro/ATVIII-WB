@@ -4,7 +4,7 @@ import { gerarEstatisticas } from "../../utils/gerarEstatisticas";
 import "./style.css";
 
 interface maisConsumiram_Cliente {
-  id: number;
+  id: string;
   nome: string;
   cpf: string;
   produto: string;

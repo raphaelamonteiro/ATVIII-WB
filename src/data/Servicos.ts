@@ -1,7 +1,7 @@
-import { IServico } from "../types/IServico"; // Assuming IProduto can be renamed or adapted to IService
+import { IServico } from "../types/IServico";
 
 // Serviços
-export const servicos: IServico[] = [ // You might want to rename 'produtos' to 'servicos'
+export const servicos: IServico[] = [
     { id: '0', nome: 'Limpeza de Pele Profunda', descricao: 'Limpeza e extração completa para todos os tipos de pele, promovendo renovação e luminosidade.', valor: 150.00 },
     { id: '1', nome: 'Massagem Relaxante Terapêutica', descricao: 'Técnicas de massagem para alívio de tensões musculares e profundo relaxamento.', valor: 120.00 },
     { id: '2', nome: 'Drenagem Linfática Corporal', descricao: 'Terapia manual para reduzir inchaço e melhorar a circulação, auxiliando na desintoxicação.', valor: 130.00 },

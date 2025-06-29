@@ -36,7 +36,7 @@
     }
 
     span {
-        background-color: var(--blue);
+        background-color: var(--highlight);
         border: 0;
         color: var(--white);
         font-size: 14px;
@@ -48,6 +48,6 @@
     }
 
     span:hover {
-        background-color: var(--light-brown);
+        background-color: var(--red);
     }
 }

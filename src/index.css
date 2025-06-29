@@ -9,12 +9,12 @@
 :root {
     --primary: #FFDFEF;
     --secondary: #E53888;
-    --light-brown: #A53860;
-    --gray: #D9D9D9;
-    --blue: #D76C82;
-    --green: #F49BAB;
+    --red: #A53860;
+    --secondary-white: #D9D9D9;
+    --highlight: #D76C82;
+    --secondary-highlight: #F49BAB;
     --white: #FFF2EB;
-    --gray-light: #e5e1dc;
+    --secondary-white: #e5e1dc;
     --shade: #efefef;
 }
 
@@ -35,3 +35,36 @@ nav {
 a {
     text-decoration: none;
 }
+
+
+.edit-button {
+    background-color: var(--red);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 1px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-button:hover {
+    background-color: var(--secondary);
+  }
+
+  .remove-button {
+      background-color: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 10px 20px;
+    border-radius: 1px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  }
+
+  .remove-button:hover {
+      background-color: var(--secondary);
+  }

@@ -21,7 +21,7 @@
 }
 
 .menu li:hover {
-    background-color: var(--light-brown);
+    background-color: var(--red);
     transition: 0.2s;
     color: var(--primary);
     cursor: pointer;
@@ -50,7 +50,7 @@
 }
 
 .dropdown-menu li:hover {
-    background-color: var(--light-brown);
+    background-color: var(--red);
     color: var(--primary);
 }
 

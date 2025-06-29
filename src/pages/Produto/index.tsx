@@ -1,35 +1,70 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { produtos } from "../../data/Produtos";
+import "./style.css";
+import { produtos as produtosFixos } from "../../data/Produtos";
 import { IProduto } from "../../types/IProduto";
 import SearchBar from "../../components/SearchBar";
+import TabelaProdutos from "./TabelaProdutos";
 
+interface State {
+  produtos: IProduto[];
+  filtro: string;
+}
 
-class ProdutosPage extends React.Component {
-  state: {
-    produtos: IProduto[];
-    filtro: string;
-  } = {
-      produtos: produtos,
+class ProdutosPage extends React.Component<{}, State> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      produtos: [],
       filtro: "",
     };
+  }
 
-  filtrarProdutos = (produtos: IProduto[], filtro: string): IProduto[] => {
-    if (!filtro) return produtos;
-    return produtos.filter(
-      (produto) =>
-        produto.id.toLowerCase().includes(filtro.toLowerCase()) ||
-        produto.nome.toLowerCase().includes(filtro.toLowerCase())
-    );
-  };
+  componentDidMount() {
+    const produtosLocal = JSON.parse(localStorage.getItem("produtos") || "[]") as IProduto[];
+
+    const todos = [...produtosFixos];
+    produtosLocal.forEach((s) => {
+      const existe = todos.some((fixo) => fixo.id === s.id);
+      if (!existe) todos.push(s);
+    });
+
+    this.setState({ produtos: todos });
+  }
 
   handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ filtro: e.target.value });
   };
 
-  render(): React.ReactNode {
+  excluirProduto = (id: string) => {
+    const novos = this.state.produtos.filter((s) => s.id !== id);
+
+    const apenasCustomizados = novos.filter(
+      (s) => !produtosFixos.some((fixo) => fixo.id === s.id)
+    );
+
+    localStorage.setItem("produtos", JSON.stringify(apenasCustomizados));
+    this.setState({ produtos: novos });
+  };
+
+  editarProduto = (produto: IProduto) => {
+    localStorage.setItem("produtoEditando", JSON.stringify(produto));
+    window.location.href = "/cadastroproduto";
+  };
+
+  filtrarProdutos = (): IProduto[] => {
     const { produtos, filtro } = this.state;
-    const produtosFiltrados = this.filtrarProdutos(produtos, filtro);
+    if (!filtro.trim()) return produtos;
+
+    return produtos.filter(
+      (s) =>
+        s.id.toLowerCase().includes(filtro.toLowerCase()) ||
+        s.nome.toLowerCase().includes(filtro.toLowerCase())
+    );
+  };
+
+  render(): React.ReactNode {
+    const produtosFiltrados = this.filtrarProdutos();
 
     return (
       <div className="container-tipos">
@@ -50,28 +85,11 @@ class ProdutosPage extends React.Component {
           </div>
         </div>
 
-        <div className="table-component" role="region" tabIndex={0}>
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th>Valor</th>
-              </tr>
-            </thead>
-            <tbody>
-              {produtosFiltrados.map((produto) => (
-                <tr key={produto.id}>
-                  <td>{produto.id}</td>
-                  <td>{produto.nome}</td>
-                  <td>{produto.descricao}</td>
-                  <td>R$ {produto.valor.toFixed(2).replace(".", ",")}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <TabelaProdutos
+          produtos={produtosFiltrados}
+          onExcluir={this.excluirProduto}
+          onEditar={this.editarProduto}
+        />
       </div>
     );
   }

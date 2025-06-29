@@ -1,35 +1,70 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { servicos } from "../../data/Servicos";
+import "./style.css";
+import { servicos as servicosFixos } from "../../data/Servicos";
 import { IServico } from "../../types/IServico";
 import SearchBar from "../../components/SearchBar";
+import TabelaServicos from "./TabelaServicos";
 
+interface State {
+  servicos: IServico[];
+  filtro: string;
+}
 
-class ServicosPage extends React.Component {
-  state: {
-    servicos: IServico[];
-    filtro: string;
-  } = {
-      servicos: servicos,
+class ServicosPage extends React.Component<{}, State> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      servicos: [],
       filtro: "",
     };
+  }
 
-  filtrarServicos = (servicos: IServico[], filtro: string): IServico[] => {
-    if (!filtro) return servicos;
-    return servicos.filter(
-      (servico) =>
-        servico.id.toLowerCase().includes(filtro.toLowerCase()) ||
-        servico.nome.toLowerCase().includes(filtro.toLowerCase())
-    );
-  };
+  componentDidMount() {
+    const servicosLocal = JSON.parse(localStorage.getItem("servicos") || "[]") as IServico[];
+
+    const todos = [...servicosFixos];
+    servicosLocal.forEach((s) => {
+      const existe = todos.some((fixo) => fixo.id === s.id);
+      if (!existe) todos.push(s);
+    });
+
+    this.setState({ servicos: todos });
+  }
 
   handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ filtro: e.target.value });
   };
 
-  render(): React.ReactNode {
+  excluirServico = (id: string) => {
+    const novos = this.state.servicos.filter((s) => s.id !== id);
+
+    const apenasCustomizados = novos.filter(
+      (s) => !servicosFixos.some((fixo) => fixo.id === s.id)
+    );
+
+    localStorage.setItem("servicos", JSON.stringify(apenasCustomizados));
+    this.setState({ servicos: novos });
+  };
+
+  editarServico = (servico: IServico) => {
+    localStorage.setItem("servicoEditando", JSON.stringify(servico));
+    window.location.href = "/cadastroservico";
+  };
+
+  filtrarServicos = (): IServico[] => {
     const { servicos, filtro } = this.state;
-    const servicosFiltrados = this.filtrarServicos(servicos, filtro);
+    if (!filtro.trim()) return servicos;
+
+    return servicos.filter(
+      (s) =>
+        s.id.toLowerCase().includes(filtro.toLowerCase()) ||
+        s.nome.toLowerCase().includes(filtro.toLowerCase())
+    );
+  };
+
+  render(): React.ReactNode {
+    const servicosFiltrados = this.filtrarServicos();
 
     return (
       <div className="container-tipos">
@@ -50,28 +85,11 @@ class ServicosPage extends React.Component {
           </div>
         </div>
 
-        <div className="table-component" role="region" tabIndex={0}>
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th>Valor</th>
-              </tr>
-            </thead>
-            <tbody>
-              {servicosFiltrados.map((servico) => (
-                <tr key={servico.id}>
-                  <td>{servico.id}</td>
-                  <td>{servico.nome}</td>
-                  <td>{servico.descricao}</td>
-                  <td>R$ {servico.valor.toFixed(2).replace(".", ",")}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <TabelaServicos
+          servicos={servicosFiltrados}
+          onExcluir={this.excluirServico}
+          onEditar={this.editarServico}
+        />
       </div>
     );
   }

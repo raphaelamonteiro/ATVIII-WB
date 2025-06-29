@@ -1,8 +1,6 @@
-
 # 🧾 Atividade prática ATVIII – Interface Gráfica (Com Hooks)
 
 **Professor:** [Gerson da Penha Neto](https://github.com/gerson-pn)
-
 
 ## 🚀 Tecnologias utilizadas
 
@@ -19,6 +17,7 @@
 ---
 
 ## ☕ Contextualização
+
 Após o sucesso da primeira versão do sistema CLI desenvolvido para o Grupo World Beauty (WB), a empresa percebeu a necessidade de atualizar a interface do sistema para uma interface gráfica (GUI) moderna. O objetivo é garantir que o sistema seja acessível através de navegadores comuns e também por dispositivos móveis.
 
 <br>
@@ -34,6 +33,7 @@ Agora, você é responsável por **migrar o sistema** para a versão mais modern
 Você será responsável por liderar a transição do sistema para uma versão mais moderna com React e Hooks. A nova versão deve manter os mesmos padrões visuais utilizando a biblioteca **MaterializeCSS**, mas agora utilizando **componentes de função**.
 
 ### 🎯 Objetivo:
+
 Desenvolver uma interface web responsiva para o sistema WB, com foco em **usabilidade, clareza e organização dos dados de clientes, produtos e serviços.**
 
 - Interfaces criadas com **React (componentes de função)**
@@ -44,6 +44,7 @@ Desenvolver uma interface web responsiva para o sistema WB, com foco em **usabil
 ---
 
 ## 🛠️ Funcionalidades obrigatórias
+
 - Formulários de cadastro e edição de clientes
 - Listagem de clientes cadastrados
 - Componentes visuais para cadastro de serviços/produtos (em andamento)
@@ -56,15 +57,15 @@ Desenvolver uma interface web responsiva para o sistema WB, com foco em **usabil
 
 Antes de rodar o sistema, certifique-se de ter instalado:
 
-* [Node.js](https://nodejs.org/) (versão 14 ou superior)
-* npm (vem junto com o Node.js)
+- [Node.js](https://nodejs.org/) (versão 14 ou superior)
+- npm (vem junto com o Node.js)
 
 Verifique com:
 
 ```bash
 node -v
 npm -v
-````
+```
 
 ---
 
@@ -99,20 +100,21 @@ http://localhost:5173
 
 ### 🧩 Materiais de Apoio
 
-* 🔗 Repositório auxiliar: [atviii-wb-typescript](https://github.com/gerson-pn/atviii-wb-typescript)
-* 📚 [Documentação do React](https://reactjs.org/docs/hooks-intro.html)
-* 🎨 [Documentação do MaterializeCSS (v1.0.0)](https://materializecss.com)
+- 🔗 Repositório auxiliar: [atviii-wb-typescript](https://github.com/gerson-pn/atviii-wb-typescript)
+- 📚 [Documentação do React](https://reactjs.org/docs/hooks-intro.html)
+- 🎨 [Documentação do MaterializeCSS (v1.0.0)](https://materializecss.com)
 
 ---
 
 ## 🔄 Histórico de alterações
 
-* **v1.0.0**: Projeto inicial utilizando **componentes de classe** e **MaterializeCSS**.
-* **v2.0.0**: Migração para **componentes de função** com **React Hooks**.
+- **v1.0.0**: Projeto inicial utilizando **componentes de classe** e **MaterializeCSS**.
+- **v2.0.0**: Migração para **componentes de função** com **React Hooks**.
 
 ---
 
 > Por [Raphaela Monteiro](https://github.com/raphaelamonteiro)
+
 ```
 
 ---
@@ -125,3 +127,4 @@ http://localhost:5173
 4. **Materiais de Apoio**: Foi atualizado o link da documentação de hooks da React.
 
 
+```

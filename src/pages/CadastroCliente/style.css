@@ -23,9 +23,6 @@
     align-items: center;
 }
 
-.image-user img {
-    width: 100px;
-}
 
 .form-cadastro input {
     width: 100%;
@@ -34,11 +31,11 @@
     font-size: 16px;
     outline: none;
     border: none;
-    background-color: var(--gray-light);
+    background-color: var(    --secondary-white);
 }
 
 .form-cadastro button {
-    background-color: var(--light-brown);
+    background-color: var(--red);
     border: 0;
     color: var(--white);
     font-size: 14px;

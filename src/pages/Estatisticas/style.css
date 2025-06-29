@@ -6,7 +6,7 @@
 
 h2 {
   margin-bottom: 20px;
-  color: var(--light-brown);
+  color: var(--red);
   font-size: 2rem;
 }
 
@@ -27,7 +27,7 @@ h2 {
   thead {
     position: sticky;
     top: 0;
-    background-color: var(--light-brown);
+    background-color: var(--red);
     color: var(--primary);
 
     th {
@@ -58,13 +58,13 @@ h2 {
 }
 
 .title-top-10 {
-  border-left: 5px solid var(--light-brown);
+  border-left: 5px solid var(--red);
   padding-left: 10px;
   margin-bottom: 20px;
 }
 
 .title-top-10-valor {
-  border-left: 5px solid var(--light-brown);
+  border-left: 5px solid var(--red);
   padding-left: 10px;
   margin: 60px 0 20px;
 }
