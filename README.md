@@ -58,7 +58,7 @@ Desenvolver uma interface web responsiva para o sistema WB, com foco em **usabil
 
 Antes de rodar o sistema, certifique-se de ter instalado:
 
-- [Node.js](https://nodejs.org/) (versão 14 ou superior)
+- [Node.js](https://nodejs.org/) (versão 22 ou superior)
 - npm (vem junto com o Node.js)
 
 Verifique com:
